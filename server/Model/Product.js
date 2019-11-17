@@ -19,12 +19,12 @@ const productSchema = new mongoose.Schema(
     brand: {
       type: mongoose.Schema.ObjectId,
       ref: 'Brand',
-      required: [true, 'A product must have a brand']
+      required: [true, 'A product must belong to a brand']
     },
     category: {
       type: mongoose.Schema.ObjectId,
       ref: 'Category',
-      required: [true, 'A product must have Category']
+      required: [true, 'A product must belong to a Category']
     },
     quantity: {
       type: Number,
@@ -38,9 +38,10 @@ const productSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+//define in schema that we want virtual properties in object / JSON
 productSchema.set('toJSON', { virtuals: true });
 productSchema.set('toObject', { virtuals: true });
-
+//virtual properties checks if product is in stock and return a boolean
 productSchema.virtual('inStock').get(function() {
   return this.quantity > 0 ? true : false;
 });

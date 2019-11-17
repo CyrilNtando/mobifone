@@ -44,7 +44,7 @@ const profileSchema = new mongoose.Schema({
     required: [true, 'A Profile must have a phone Number']
   }
 });
-//Adding validation to the embedded (Address) Object
+//Adding validation to the embedded (Address)  property
 profileSchema.path('address').validate(function(address) {
   if (!address) return false;
   else if (address.length === 0) return false;
