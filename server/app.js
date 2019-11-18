@@ -4,30 +4,38 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
-/*********************************************************************************** *
-MIDDLEWARES
-*********************************************************************************** */
+
+const globalErrorHandler = require('./controllers/errorController');
+const appError = require('./utils/appError');
+/***********************************
+ MIDDLEWARE
+******************************* */
 //Body Parser Reading Data from req.body
 app.use(express.json({ limit: '3000kb' })); //parse data less than 3mb
 
-//SECURITY
-//Set Headers
+//SECURITY:
+// 1. Set Headers
 app.use(helmet());
-//Data sanitization (prevent noSQL injection)
+//2. Data sanitization (prevent noSQL injection)
 app.use(mongoSanitize());
-//Data sanitization (Against XSS)
+//3. Data sanitization (Against XSS)
 app.use(xss());
 //Prevent Parameter Pollution
 // app.use(hpp({
 //     whitelist[]
 // }));
 
-/*********************************************************************************** *
+/*********************
 MOUNTING ROUTES
-*********************************************************************************** */
+******************** */
 
-//global route
+/*********************
+GLOBAL HANDLERS 
+******************** */
+//Handles all invalid routes
 app.all('*', (req, res, next) => {
-  next(`cannot find ${req.originalUrl} on this server `);
+  next(new appError(`cannot find ${req.originalUrl} on this server `, 404));
 });
+//All errors are handle in this globalErrorHandler function
+app.use(globalErrorHandler);
 module.exports = app;
