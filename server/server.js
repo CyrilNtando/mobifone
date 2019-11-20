@@ -1,6 +1,5 @@
-const dotenv = require('dotenv');
-dotenv.config({ path: './config.env' });
-
+//get env file
+require('dotenv').config({ path: __dirname + '/config.env' });
 process.on('uncaughtException', error => {
   console.log('UncaughtException Server is Shutting Down!!!!!');
   console.log(error.name, error.message);

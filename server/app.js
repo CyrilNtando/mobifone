@@ -7,6 +7,7 @@ const hpp = require('hpp');
 
 const globalErrorHandler = require('./controllers/errorController');
 const appError = require('./utils/appError');
+const userRoute = require('./routes/UserRoutes');
 /***********************************
  MIDDLEWARE
 ******************************* */
@@ -28,7 +29,7 @@ app.use(xss());
 /*********************
 MOUNTING ROUTES
 ******************** */
-
+app.use('/api/v1/users', userRoute);
 /*********************
 GLOBAL HANDLERS 
 ******************** */
