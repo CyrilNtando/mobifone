@@ -58,5 +58,6 @@ profileSchema.path('address').validate(function(address) {
   else if (address.length === 0) return false;
   else return true;
 }, 'Please provide you Address');
+
 const Profile = mongoose.model('Profile', profileSchema);
 module.exports = Profile;
