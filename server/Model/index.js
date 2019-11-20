@@ -8,6 +8,7 @@ mongoose.Promise = Promise;
 mongoose.connect(process.env.DATABASE_LOCAL, {
   keepAlive: true,
   useNewUrlParser: true,
+  useCreateIndex: true,
   useFindAndModify: false // find and modify is deprecated
 });
 

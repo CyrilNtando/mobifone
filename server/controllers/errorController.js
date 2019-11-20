@@ -1,5 +1,5 @@
 const sendError = (err, res) => {
-  console.log(error, err.stack);
+  //console.log(error, err.stack);
   //Operational, trusted error: send message to client
   if (err.isOperational) {
     res.status(err.statusCode).json({

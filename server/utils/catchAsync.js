@@ -3,7 +3,7 @@ module.exports = fn => {
   //returns an anonymous function
   return (req, res, next) => {
     fn(req, res, next).catch(error => {
-      console.log(error);
+      //go to next middleware(global error handler)
       next(error);
     });
   };

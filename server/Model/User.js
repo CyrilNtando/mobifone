@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -60,6 +61,22 @@ const userSchema = new mongoose.Schema({
   passwordResetToken: String,
   passwordResetExpires: Date
 });
+//before saving checked is password is being update
+//@modified encrypt password else move to next middleware
+userSchema.pre('save', async function() {
+  //if password has not been modified move to next middleware
+  if (!this.isModified('password')) return next();
+  //encrypt password with cost of 12
+  this.password = await bcrypt.hash(this.password, 12);
+  //remove confirm password after validation
+  this.passwordConfirm = undefined;
+  return next();
+});
+
+//adding an instance method to check if password is correct
+userSchema.methods.correctPassword = async function(candidatePassword, userPassword) {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;
