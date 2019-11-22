@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const Address = require('./Address');
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -49,6 +50,12 @@ const userSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.ObjectId,
       ref: 'Order'
+    }
+  ],
+  address: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Address'
     }
   ],
   active: {
