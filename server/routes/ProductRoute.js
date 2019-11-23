@@ -4,11 +4,16 @@ const authHandler = require('../controllers/authController');
 const productHandler = require('../controllers/productController');
 const router = express.Router();
 
+///api/v1/product/
 router
   .route('/')
   .get(productHandler.getAllProduct)
   .post(authHandler.protect, productHandler.createProduct);
-
-router.route('/:id').get(productHandler.getProduct);
+///api/v1/product/:id
+router
+  .route('/:id')
+  .get(productHandler.getProduct)
+  .patch(productHandler.updateProduct)
+  .delete(productHandler.deleteProduct);
 
 module.exports = router;

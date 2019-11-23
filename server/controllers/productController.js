@@ -25,7 +25,7 @@ exports.getAllProduct = catchAsync(async function(req, res) {
 exports.getProduct = catchAsync(async function(req, res, next) {
   const product = await db.Product.findById(req.body.id);
   if (!product) return next(new appError('No product found with that ID', 404));
-  res.status(201).json({
+  res.status(200).json({
     status: 'success',
     data: {
       product
@@ -39,5 +39,30 @@ exports.createProduct = catchAsync(async function(req, res) {
     data: {
       product
     }
+  });
+});
+
+exports.updateProduct = catchAsync(async function(req, res, next) {
+  const product = await db.Product.findByIdAndUpdate(req.params.id, req.body, {
+    new: true, //return document after update
+    runValidators: true //run all validations before update
+  });
+  if (!product) next(new appError('No product found with that ID', 404));
+
+  return status(200).json({
+    status: 'success',
+    data: {
+      product
+    }
+  });
+});
+
+exports.deleteProduct = catchAsync(async function(req, res, next) {
+  const product = await db.Product.findByIdAndDelete(req.params.id);
+  if (!product) return next(new appError('No product found with that ID', 404));
+
+  return status(204).json({
+    status: 'success',
+    data: null
   });
 });
