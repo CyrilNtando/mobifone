@@ -14,7 +14,7 @@ mongoose.connect(process.env.DATABASE_LOCAL, {
 
 module.exports.User = require('./User');
 module.exports.Address = require('./Address');
-// module.exports.Category = require('./Category');
-// module.exports.Product = require('./Product');
+module.exports.Category = require('./Category');
+module.exports.Product = require('./Product');
 // module.exports.Review = require('./Review');
 // module.exports.Order = require('./Order');

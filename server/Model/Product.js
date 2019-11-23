@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema(
     brand: {
       type: mongoose.Schema.ObjectId,
       ref: 'Brand',
-      required: [true, 'A product must belong to a brand']
+      required: [true, 'A product must have a brand name']
     },
     category: {
       type: mongoose.Schema.ObjectId,
