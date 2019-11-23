@@ -23,7 +23,7 @@ exports.getAllProduct = catchAsync(async function(req, res) {
 });
 
 exports.getProduct = catchAsync(async function(req, res, next) {
-  const product = await db.Product.findById(req.body.id);
+  const product = await db.Product.findById(req.params.id);
   if (!product) return next(new appError('No product found with that ID', 404));
   res.status(200).json({
     status: 'success',

@@ -8,3 +8,7 @@ const categorySchema = new mongoose.Schema({
     maxlength: [100, 'A Category name must have less or equal 100 characters']
   }
 });
+
+const category = mongoose.model('Category', categorySchema);
+
+module.exports = category;
