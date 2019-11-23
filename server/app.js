@@ -9,6 +9,7 @@ const globalErrorHandler = require('./controllers/errorController');
 const appError = require('./utils/appError');
 
 const userRoute = require('./routes/UserRoutes');
+const categoryRoute = require('./routes/categoryRoutes');
 const productRoute = require('./routes/ProductRoute');
 /***********************************
  MIDDLEWARE
@@ -32,6 +33,7 @@ app.use(xss());
 MOUNTING ROUTES
 ******************** */
 app.use('/api/v1/users', userRoute);
+app.use('/api/v1/category', categoryRoute);
 app.use('/api/v1/product', productRoute);
 /*********************
 GLOBAL HANDLERS 
