@@ -8,3 +8,7 @@ const brandSchema = new mongoose.Schema({
     maxlength: [100, 'A Brand name must have less or equal 100 characters']
   }
 });
+
+const Brand = mongoose.model('Brand', brandSchema);
+
+module.exports = Brand;

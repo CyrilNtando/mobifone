@@ -9,6 +9,7 @@ const globalErrorHandler = require('./controllers/errorController');
 const appError = require('./utils/appError');
 
 const userRoute = require('./routes/UserRoutes');
+const brandRoute = require('./routes/brandRoutes');
 const categoryRoute = require('./routes/categoryRoutes');
 const productRoute = require('./routes/ProductRoute');
 /***********************************
@@ -33,6 +34,7 @@ app.use(xss());
 MOUNTING ROUTES
 ******************** */
 app.use('/api/v1/users', userRoute);
+app.use('/api/v1/brand', brandRoute);
 app.use('/api/v1/category', categoryRoute);
 app.use('/api/v1/product', productRoute);
 /*********************

@@ -1,4 +1,3 @@
-//require router
 const router = require('express').Router();
 const categoryHandlers = require('../controllers/categoryController');
 
