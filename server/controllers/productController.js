@@ -49,7 +49,7 @@ exports.updateProduct = catchAsync(async function(req, res, next) {
   });
   if (!product) next(new appError('No product found with that ID', 404));
 
-  return status(200).json({
+  res.status(200).json({
     status: 'success',
     data: {
       product
@@ -61,7 +61,7 @@ exports.deleteProduct = catchAsync(async function(req, res, next) {
   const product = await db.Product.findByIdAndDelete(req.params.id);
   if (!product) return next(new appError('No product found with that ID', 404));
 
-  return status(204).json({
+  res.status(204).json({
     status: 'success',
     data: null
   });

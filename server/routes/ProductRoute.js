@@ -6,7 +6,7 @@ const productHandler = require('../controllers/productController');
 router
   .route('/')
   .get(productHandler.getAllProduct)
-  .post(authHandler.protect, productHandler.createProduct);
+  .post(productHandler.createProduct);
 ///api/v1/product/:id
 router
   .route('/:id')

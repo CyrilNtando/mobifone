@@ -38,6 +38,9 @@ const productSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+//to Prevent duplicate Reviews
+productSchema.index({ brand: 1, category: 1 }, { unique: true });
 //define in schema that we want virtual properties in object / JSON
 productSchema.set('toJSON', { virtuals: true });
 productSchema.set('toObject', { virtuals: true });
@@ -45,6 +48,18 @@ productSchema.set('toObject', { virtuals: true });
 productSchema.virtual('inStock').get(function() {
   return this.quantity > 0 ? true : false;
 });
+
+//any query that start with find
+productSchema.pre(/^find/, function() {
+  this.populate({
+    path: 'brand',
+    select: 'name'
+  }).populate({
+    path: 'category',
+    select: 'name'
+  });
+});
+
 const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
