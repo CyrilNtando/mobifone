@@ -1,0 +1,20 @@
+.navbar {
+  &__primary {
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__secondary {
+    font-size: 1.4rem;
+    height: 4rem;
+    background-color: var(--color-grey-dark-1);
+    border-bottom: var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
