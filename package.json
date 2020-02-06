@@ -6,12 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server/server.js",
-    "client": "yarn run start --prefix client",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "ntando",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.7.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.0.0",
     "dotenv": "^8.0.0",
