@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 //COMPONENTS
 import Navbar from '../Layout/Navbar/Navbar';
 import Landing from '../Layout/Landing/Landing';
@@ -7,9 +8,11 @@ import Footer from '../Layout/Footer/Footer';
 function App() {
   return (
     <div className='App'>
-      <Navbar />
-      <Main />
-      <Footer />
+      <BrowserRouter>
+        <Navbar />
+        <Main />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

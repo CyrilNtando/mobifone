@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles.scss';
-import App from './Hocs/App';
+import App from './Container/App';
+import { ThemeProvider } from 'styled-components';
+import Theme from './Theme';
+import GlobalStyle from './GlobalStyles';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <ThemeProvider theme={Theme}>
+    <App />
+    <GlobalStyle />
+  </ThemeProvider>,
+  document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
