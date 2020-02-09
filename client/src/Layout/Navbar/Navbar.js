@@ -2,8 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from '../../Components/Logo/Logo';
 import NavigationList from '../../Components/Navigation/NavigationList';
-const StyledNavBar = styled.header`
+
+const StyledHeader = styled.header`
+  position: relative;
+`;
+const StyledNavBar = styled.nav`
   position: fixed;
+  top: 0;
+  left: 0;
   font-size: 1.4rem;
   height: 7rem;
   background: #ebebeb;
@@ -25,12 +31,14 @@ const StyledNavBar = styled.header`
 
 function Navbar() {
   return (
-    <StyledNavBar className='navbar'>
-      <nav className='navbar__container'>
-        <Logo />
-        <NavigationList />
-      </nav>
-    </StyledNavBar>
+    <StyledHeader>
+      <StyledNavBar className='navbar'>
+        <div className='navbar__container'>
+          <Logo />
+          <NavigationList />
+        </div>
+      </StyledNavBar>
+    </StyledHeader>
   );
 }
 

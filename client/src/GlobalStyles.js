@@ -16,6 +16,10 @@ html {
     font-size: 62.5%; /** * 1rem = 10px, 10px/16px = 62.5%**/
 }
 
+body{
+    font-size: 1.6rem;
+}
+
 `;
 
 export default GlobalStyle;
