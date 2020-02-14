@@ -13,6 +13,7 @@ const NormalButton = styled.button`
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  cursor: pointer;
   &:hover {
     transform: scale(1.1);
   }

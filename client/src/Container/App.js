@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 //COMPONENTS
 import Navbar from '../Layout/Navbar/Navbar';
-import Landing from '../Layout/Landing/Landing';
+import Landing from './Landing/Landing';
 import Main from '../Layout/Main/Main';
 import Footer from '../Layout/Footer/Footer';
 function App() {
