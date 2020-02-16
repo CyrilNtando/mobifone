@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
-
+import SliderItem from './SliderItem';
+import slideContent from './slideContent';
 const StyledCarousel = styled.div`
-  height: 20vh;
-  .slideItem {
-    height: 20vh;
-  }
+  width: 100%;
+  min-height: 3.25rem;
+  height: 70vh;
 `;
-
 class Carousel extends Component {
   render() {
     const settings = {
@@ -20,26 +19,10 @@ class Carousel extends Component {
     };
     return (
       <StyledCarousel>
-        <h2> Single Item</h2>
         <Slider {...settings}>
-          <div className='SlideItem'>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
+          {slideContent.map(image => (
+            <SliderItem imageUrl={image.imageUrl} title={image.title} />
+          ))}
         </Slider>
       </StyledCarousel>
     );

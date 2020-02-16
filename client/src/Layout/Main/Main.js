@@ -8,9 +8,9 @@ import Product from '../../Container/Product/Product';
 
 const Wrapper = styled.main`
   background-color: ${props => props.theme.colorGreyLight1};
-  height: 100%;
+  position: relative;
+  height: auto;
   width: 100%;
-  padding: 8rem;
 `;
 function Main() {
   return (
