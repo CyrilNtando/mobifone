@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Typography from '../../Components/Typography/Typography';
 const StyledSliderItem = styled.div`
   background-image: url(${props => props.imageUrl});
   background-position: center;
@@ -10,11 +11,17 @@ const StyledSliderItem = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding-left: 8rem;
+
+  .slideTextWrapper {
+    width: 40vw;
+  }
 `;
 export default function SliderItem(props) {
   return (
     <StyledSliderItem imageUrl={props.imageUrl}>
-      <h1>{props.title}</h1>
+      <div className='slideTextWrapper'>
+        <Typography variant='primary'>{props.title}</Typography>
+      </div>
     </StyledSliderItem>
   );
 }
