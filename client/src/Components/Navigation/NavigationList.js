@@ -19,6 +19,7 @@ const StyledNavigationList = styled.ul`
   .navigationList__Link:link {
     display: inline-block;
     color: inherit;
+    font-size: 1.8rem;
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;

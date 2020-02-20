@@ -11,6 +11,7 @@ const Wrapper = styled.main`
   position: relative;
   height: auto;
   width: 100%;
+  margin-top: 7rem;
 `;
 function Main() {
   return (
