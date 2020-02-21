@@ -7,6 +7,7 @@ const StyledCarousel = styled.div`
   position: relative;
   width: 100%;
   min-height: 3.25rem;
+  margin: 0 auto;
 `;
 class Carousel extends Component {
   constructor(props) {

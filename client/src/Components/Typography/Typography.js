@@ -14,7 +14,7 @@ const StyledSecondary = styled.h2`
   text-transform: uppercase;
   word-spacing: 1rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-top: ${props => props.theme.gridGutterVertical};
 
   &::after {
     content: '';
