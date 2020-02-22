@@ -15,6 +15,12 @@ const Theme = {
   gridWidth: '114rem',
   gridGutterHorizontal: '6rem',
   gridGutterVertical: '8rem',
+  //BREAKPOINT
+  small: '599px',
+  medium: '600px',
+  large: '900px',
+  extraLarge: '1200px',
+
   line: '1px solid #cacaca'
 };
 
