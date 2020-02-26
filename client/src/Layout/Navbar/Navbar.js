@@ -25,7 +25,7 @@ const StyledNavBar = styled.nav`
     align-content: center;
     width: 100%;
     margin: 0 auto;
-    max-width: ${props => props.theme.gridWidth};
+    max-width: ${props => props.theme.pageWidth};
   }
 `;
 

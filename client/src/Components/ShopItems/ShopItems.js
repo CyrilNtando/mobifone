@@ -2,7 +2,8 @@ import React from 'react';
 import Container from '../../Container/Container/Container';
 import Item from './Item';
 import styled from 'styled-components';
-
+import Card from '../ProductCard/ProductCard';
+import productImage from '../../images/mk1.jpg';
 const StyledShopItems = styled.div`
   position: relative;
   margin: 0 auto;
@@ -14,10 +15,37 @@ export default function ShopItems() {
   return (
     <Container>
       <StyledShopItems>
-        <Item>Item 1</Item>
-        <Item>Item 2</Item>
-        <Item>Item 3</Item>
-        <Item>Item 4</Item>
+        <Item>
+          <Card
+            productImage={productImage}
+            productName={'Samsung'}
+            price={'R1500'}
+          />
+        </Item>
+        <Item>
+          {' '}
+          <Card
+            productImage={productImage}
+            productName={'Samsung'}
+            price={'R1500'}
+          />
+        </Item>
+        <Item>
+          {' '}
+          <Card
+            productImage={productImage}
+            productName={'Samsung'}
+            price={'R1500'}
+          />
+        </Item>
+        <Item>
+          {' '}
+          <Card
+            productImage={productImage}
+            productName={'Samsung'}
+            price={'R1500'}
+          />
+        </Item>
       </StyledShopItems>
     </Container>
   );

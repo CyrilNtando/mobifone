@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 
 const StyledContainer = styled.div`
   width: 100%;
-  max-width: ${props => props.theme.gridWidth};
+  max-width: ${props => props.theme.pageWidth};
   margin: 0 auto;
 `;
 

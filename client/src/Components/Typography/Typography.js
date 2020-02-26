@@ -6,15 +6,15 @@ const StyledPrimary = styled.h1`
   text-transform: uppercase;
   font-size: ${props => (props.size ? props.size + 'rem' : '4.8rem')};
   font-weight: 300;
-  letter-spacing: 1rem;
+  letter-spacing: 1.75rem;
 `;
 const StyledSecondary = styled.h2`
   font-size: 3.6rem;
   font-weight: 300;
   text-transform: uppercase;
-  word-spacing: 1rem;
+  letter-spacing: 1rem;
   text-align: center;
-  margin-top: ${props => props.theme.gridGutterVertical};
+  margin-top: ${props => props.theme.spacingHorizontal};
 
   &::after {
     content: '';
@@ -26,12 +26,17 @@ const StyledSecondary = styled.h2`
     margin-top: 3rem;
   }
 `;
-const StyledTernary = styled.h3``;
+const StyledTernary = styled.h3`
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 400;
+`;
 const StyledParagraph = styled.p``;
 export default function Typography(props) {
+  let typography = '';
   switch (props.variant) {
     case 'primary':
-      return (
+      typography = (
         <StyledPrimary
           children={props.children}
           size={props.size}
@@ -40,12 +45,17 @@ export default function Typography(props) {
       );
       break;
     case 'secondary':
-      return <StyledSecondary children={props.children} />;
+      typography = <StyledSecondary children={props.children} />;
+      break;
+    case 'ternary':
+      typography = <StyledTernary children={props.children} />;
       break;
     case 'paragraph':
-      return StyledParagraph;
+      typography = <StyledParagraph children={props.children} />;
       break;
     default:
       return '';
   }
+
+  return typography;
 }

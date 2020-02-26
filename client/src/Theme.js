@@ -12,9 +12,10 @@ const Theme = {
   colorGreyDark2: '#777',
   colorGreyDark3: '#999',
   //spacing and sizes
-  gridWidth: '114rem',
-  gridGutterHorizontal: '6rem',
-  gridGutterVertical: '8rem',
+  pageWidth: '114rem',
+  spacingHorizontal: '8rem',
+  spacingVertical: '6rem',
+  spacingInner: '3rem',
   //BREAKPOINT
   small: '599px',
   medium: '600px',
